@@ -1,0 +1,14 @@
+helmCharts:
+  - repo: https://helm.cilium.io/
+    name: cilium
+    version: v1.11.2
+    namespace: kube-system
+    includeCRDs: true
+    valuesInline:
+      rollOutCiliumPods: true # Roll out cilium agent pods automatically when configmap is updated
+      tunnel: "disabled" # we use kube-router for routing
+      ipam:
+        mode: "kubernetes" # required for kube-router to work
+      ipv6: { enabled: true } # Enable IPv6 support
+      enableIPv6Masquerade: true # todo: Disable when public v6 prefix is used
+      hubble: { enabled: false } # Disable Hubble

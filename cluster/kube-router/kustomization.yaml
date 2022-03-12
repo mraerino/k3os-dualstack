@@ -1,0 +1,8 @@
+resources:
+  #- https://github.com/cloudnativelabs/kube-router.git/daemonset/generic-kuberouter-only-advertise-routes.yaml?ref=v1.4.0
+  - https://github.com/cloudnativelabs/kube-router/raw/v1.4.0/daemonset/generic-kuberouter-only-advertise-routes.yaml
+images:
+  - name: docker.io/cloudnativelabs/kube-router
+    newTag: v1.4.0
+patchesStrategicMerge:
+  - patch.yaml
